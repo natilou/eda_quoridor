@@ -1,4 +1,4 @@
 .env
 myvenv
-__pychache__/
+__pycache__/
 .pytest_cache

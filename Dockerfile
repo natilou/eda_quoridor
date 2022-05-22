@@ -8,5 +8,5 @@ RUN pip install -r requirements.txt
 
 COPY . . 
 
-CMD ["python3", "/src/bot.py"]
+CMD ["python3", "/src/bot/game.py"]
 

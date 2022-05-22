@@ -141,3 +141,22 @@ SCENARIO_WITHOUT_WALLS = (
     "                 "
 )
 
+SCENARIO_WITHOUT_WALLS2 = (
+    "                 "
+    "                 "
+    "  S              "
+    "                 "
+    "        N        "
+    "                 "
+    "                 "
+    "                 "
+    "        S        "
+    "                 "
+    "                 "
+    "                 "
+    "    N            "
+    "                 "
+    "    S       N    "
+    "                 "
+    "                 "
+)
