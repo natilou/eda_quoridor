@@ -6,7 +6,7 @@ from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
 class BoardExpert:
    
     @staticmethod
-    def check_available_moves(board, side) -> list[Move]:
+    def check_available_moves(board, side):
              
         # get pawns and walls positions
         my_pawns_positions = AdapterBoard.convert_pawn_positions(board.get_my_pawns(side))
