@@ -99,7 +99,7 @@ class BoardExpert:
         return all_available_moves
 
     @staticmethod
-    def slots_close_to_opposing_pawns(board, side) -> list[Move]:
+    def slots_close_to_opposing_pawns(board, side):
         opponent_pawns_positions = AdapterBoard.convert_pawn_positions(board.get_opponent_pawns(side))
         walls_positions = AdapterBoard.convert_wall_positions(board.get_walls_positions())
 
