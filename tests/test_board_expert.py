@@ -100,85 +100,85 @@ class TestBoardExpert():
         assert result == expected
 
 
-    @pytest.mark.parametrize("board,side,expected", [
-        (
-            SCENARIO_WITHOUT_S_PAWNS,
-            "S", 
-            [
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4)),
-            ]
-        ),
-        (
-            SCENARIO_WITHOUT_S_PAWNS,
-            "N", 
-            []
-        ),
-        (
-            SCENARIO_WITH_BOTH_PAWNS, 
-            "N",
-            [
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,3)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(8,4)),
-            ]
-        ),
-        (
-            SCENARIO_WITH_BOTH_PAWNS,
-            "S", 
-            [
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,6)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,4)),
-            ]
-        ), 
-        (
-            SCENARIO_WITHOUT_N_PAWNS, 
-            "S",
-            []
-        ), 
-        (
-            SCENARIO_WITH_HORIZONTAL_WALLS,
-           "S",
-            [
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,4)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,8)),              
-            ]            
-        ), 
-        (
-            SCENARIO_WITH_HORIZONTAL_WALLS,
-           "N",
-            [
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,0)),
+    # @pytest.mark.parametrize("board,side,expected", [
+    #     (
+    #         SCENARIO_WITHOUT_S_PAWNS,
+    #         "S", 
+    #         [
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4)),
+    #         ]
+    #     ),
+    #     (
+    #         SCENARIO_WITHOUT_S_PAWNS,
+    #         "N", 
+    #         []
+    #     ),
+    #     (
+    #         SCENARIO_WITH_BOTH_PAWNS, 
+    #         "N",
+    #         [
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,3)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(8,4)),
+    #         ]
+    #     ),
+    #     (
+    #         SCENARIO_WITH_BOTH_PAWNS,
+    #         "S", 
+    #         [
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,6)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,4)),
+    #         ]
+    #     ), 
+    #     (
+    #         SCENARIO_WITHOUT_N_PAWNS, 
+    #         "S",
+    #         []
+    #     ), 
+    #     (
+    #         SCENARIO_WITH_HORIZONTAL_WALLS,
+    #        "S",
+    #         [
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,4)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,8)),              
+    #         ]            
+    #     ), 
+    #     (
+    #         SCENARIO_WITH_HORIZONTAL_WALLS,
+    #        "N",
+    #         [
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7)),
+    #             Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,0)),
                
-            ],
-        ), 
-        # TODO: corregir lógica para que no confunda paredes verticales con horizontales
-        # (
-        #     SCENARIO_WITH_VERTICAL_WALLS,
-        #     "N", 
-        #     {
-        #         "my_pawns": [(1,2), (2,7), (3,4)], 
-        #         "oponent_pawns": [(2,1), (4,3), (7,6)], 
-        #         "walls": [
-        #             ((1,4), (2,4)), 
-        #             ((2,1), (3,1)), 
-        #             ((3,3), (4,3)), 
-        #             ((4,7), (5,7)), 
-        #             ((5,0), (6,0)), 
-        #             ((5,3), (6,3)), 
-        #             ((5,5), (6,5)), 
-        #             ((6,2), (7,2))
-        #         ],
-        #     }
-        # ),  
+    #         ],
+    #     ), 
+    #     # TODO: corregir lógica para que no confunda paredes verticales con horizontales
+    #     # (
+    #     #     SCENARIO_WITH_VERTICAL_WALLS,
+    #     #     "N", 
+    #     #     {
+    #     #         "my_pawns": [(1,2), (2,7), (3,4)], 
+    #     #         "oponent_pawns": [(2,1), (4,3), (7,6)], 
+    #     #         "walls": [
+    #     #             ((1,4), (2,4)), 
+    #     #             ((2,1), (3,1)), 
+    #     #             ((3,3), (4,3)), 
+    #     #             ((4,7), (5,7)), 
+    #     #             ((5,0), (6,0)), 
+    #     #             ((5,3), (6,3)), 
+    #     #             ((5,5), (6,5)), 
+    #     #             ((6,2), (7,2))
+    #     #         ],
+    #     #     }
+    #     # ),  
        
-    ])
-    def test_slots_close_to_opposing_pawns(self, board, side, expected):
-        board = VisualBoard(board)
-        result = BoardExpert.slots_close_to_opposing_pawns(board, side)
-        assert result == expected
+    # ])
+    # def test_slots_close_to_opposing_pawns(self, board, side, expected):
+    #     board = VisualBoard(board)
+    #     result = BoardExpert.slots_close_to_opposing_pawns(board, side)
+    #     assert result == expected
     
