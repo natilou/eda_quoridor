@@ -5,12 +5,12 @@ jobs:
   test_project:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
     - name: Run unit tests with pytest
-    run: 
-      pip3 install pytest
-      python3 -m pytest tests/test_walls_positions.py
-      python3 -m pytest tests/test_pawns_positions.py
-      python3 -m pytest tests/test_adapter_board.py
-      python3 -m pytest tests/test_board_expert.py
-      python3 -m pytest tests/test_move_pawn.py
+      uses: actions/checkout@v2
+      run:
+        pip3 install pytest
+        python3 -m pytest tests/test_walls_positions.py
+        python3 -m pytest tests/test_pawns_positions.py
+        python3 -m pytest tests/test_adapter_board.py
+        python3 -m pytest tests/test_board_expert.py
+        python3 -m pytest tests/test_move_pawn.py
