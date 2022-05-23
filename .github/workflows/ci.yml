@@ -9,7 +9,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run unit tests and collect coverage
-      run: python -m pytest --cov 
+      run: python -m pytest --cov=./bot 
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v3
         
