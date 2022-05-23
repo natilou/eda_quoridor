@@ -1,6 +1,6 @@
 import pytest
 from test_scenarios import *
-from bot.game import VisualBoard
+from bot.board.visual_board import VisualBoard
 
 class TestPawnsPositions:
     @pytest.mark.parametrize("board,side,expected", [
@@ -81,65 +81,4 @@ class TestPawnsPositions:
         pawns_positions = pawn_board.get_pawns(side)
         assert pawns_positions == expected
    
-    # def test_get_my_pawns(self, board, side, expected):
-    #     pawn_board = PawnBoard(board)
-    #     my_pawns_positions = pawn_board.get_my_pawns(side)
-    #     assert my_pawns_positions == expected
-
-    # def test_get_oponent_pawns(self, board, side, expected):
-    #     pawn_board = PawnBoard(board)
-    #     oponent_pawns_positions = pawn_board.get_opponent_paws(side)
-    #     assert oponent_pawns_positions == expected
-
-
-# class TestPawnBoardCell():
-
-#     @pytest.mark.parametrize("board,row,col,expected", [
-#         (
-#             SCENARIO_WITH_BOTH_PAWNS,
-#             5,
-#             3, 
-#             "S" 
-#         ),
-#         (
-#             SCENARIO_WITH_BOTH_PAWNS,
-#             6,
-#             4, 
-#             "N" 
-#         ),
-#         (
-#             SCENARIO_WITH_BOTH_PAWNS,
-#             0,
-#             0, 
-#             " " 
-#         ),
-#          (
-#             SCENARIO_WITHOUT_S_PAWNS,
-#             4,
-#             0, 
-#             "N" 
-#         ),
-#         (
-#             SCENARIO_WITHOUT_S_PAWNS,
-#             4,
-#             1, 
-#             " " 
-#         ),
-#         (
-#             SCENARIO_WITHOUT_N_PAWNS,
-#             1,
-#             1, 
-#             "S" 
-#         ),
-#         (
-#             SCENARIO_WITHOUT_N_PAWNS,
-#             2,
-#             1, 
-#             " " 
-#         )
-#     ])
-
-#     def test_get_cell(self, board, row, col, expected):
-#         pawn_board = VisualBoard(board)
-#         cell = pawn_board.get_cell(row, col)
-#         assert cell == expected
+  

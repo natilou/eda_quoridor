@@ -29,10 +29,10 @@ class AdapterBoard():
                 adapted_col1 = position[1] // 2
                 adapted_positions.append((adapted_row1, adapted_col1))
             else:
-                adapted_row1 = [position[0][0]] // 2
-                adapted_col1 = [position[0][1]] // 2
-                adapted_row2 = [position[1][0]] // 2
-                adapted_col2 = [position[1][1]] // 2
+                adapted_row1 = position[0][0] // 2
+                adapted_col1 = position[0][1] // 2
+                adapted_row2 = position[1][0] // 2
+                adapted_col2 = position[1][1] // 2
                 adapted_positions.append(((adapted_row1, adapted_col1), (adapted_row2, adapted_col2)))
         
         return adapted_positions

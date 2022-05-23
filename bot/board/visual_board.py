@@ -1,4 +1,4 @@
-from constants import *
+from bot.constants import VISUAL_BOARD_DIMENSION
 
 class VisualBoard:
     def __init__(self, board):
