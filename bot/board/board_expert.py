@@ -1,4 +1,3 @@
-from re import A
 from bot.board.adapter_board import AdapterBoard
 from bot.domains.move import Move
 from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL

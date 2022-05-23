@@ -1,4 +1,4 @@
-from constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
+from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
 from bot.adapters.client import Client
 import json
 

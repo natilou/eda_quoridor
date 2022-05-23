@@ -1,6 +1,6 @@
 import pytest
 from test_scenarios import *
-from bot.game import VisualBoard
+from bot.board.visual_board import VisualBoard
 
 class TestWallsPositions:
     @pytest.mark.parametrize("board,expected", [

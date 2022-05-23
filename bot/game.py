@@ -1,10 +1,10 @@
+from bot.constants import URL
+from bot.adapters.websocket_client import WebsocketClient
+from bot.strategies.move_pawn import MovePawn
+from bot.strategies.put_wall import PutWall
 import asyncio
 import websockets 
 import json
-from constants import URL
-from adapters.websocket_client import WebsocketClient
-from strategies.move_pawn import MovePawn
-from strategies.put_wall import PutWall
 import sentry_sdk
 import os
 
