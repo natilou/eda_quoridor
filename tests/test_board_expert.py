@@ -35,7 +35,7 @@ class TestBoardExpert():
             "S",
             [
                 Move(type=MOVE_TYPE_PAWN, from_cell=(1,1), to_cell=(0,1)),
-                Move(type=MOVE_TYPE_PAWN, from_cell=(4, 0), to_cell=(4, 1)), # TODO: piensa que hay una pared horizontal, y es vertical
+                Move(type=MOVE_TYPE_PAWN, from_cell=(4,0), to_cell=(4, 1)), # TODO: piensa que hay una pared horizontal, y es vertical
                 Move(type=MOVE_TYPE_PAWN, from_cell=(4,4), to_cell=(3,4)),
                 #Move(type=MOVE_TYPE_PAWN, from_cell=(4,0), to_cell=(3,0)), # TODO: Hay una pared vertical, pero no le impide moverse hacia delante, ver cómo solucionarlo
             ]

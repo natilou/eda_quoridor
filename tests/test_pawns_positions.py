@@ -32,7 +32,7 @@ class TestPawnsPositions:
         (
             SCENARIO_WITHOUT_N_PAWNS,
             "S",
-            
+            [(2,2), (8,0), (8,8)]
         ), 
         (
             SCENARIO_WITH_HORIZONTAL_WALLS,
