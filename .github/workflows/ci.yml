@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run unit tests with pytest
-      uses: actions/checkout@v2
       run:
         pip3 install pytest
         python3 -m pytest tests/test_walls_positions.py
