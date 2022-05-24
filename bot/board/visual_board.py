@@ -23,14 +23,14 @@ class VisualBoard:
 
     def get_walls_positions(self):
         walls_positions = []
-
         for row in range(VISUAL_BOARD_DIMENSION):
             for col in range(VISUAL_BOARD_DIMENSION):
-                if self.get_cell(row, col) == "-" and self.get_cell(row, col+1) == "*" and self.get_cell(row, col+2) == "-":
-                    walls_positions.append(((row, col), (row, col+2)))
-
-                if self.get_cell(row, col) == "|" and self.get_cell(row+1, col) == "*" and self.get_cell(row+2, col) == "|":
-                    walls_positions.append(((row, col), (row+2, col)))
+                if col <= VISUAL_BOARD_DIMENSION - 3:
+                    if self.get_cell(row, col) == "-" and self.get_cell(row, col+1) == "*" and self.get_cell(row, col+2) == "-":
+                        walls_positions.append(((row, col), (row, col+2), "h"))
+                if row <= VISUAL_BOARD_DIMENSION - 3:
+                    if self.get_cell(row, col) == "|" and self.get_cell(row+1, col) == "*" and self.get_cell(row+2, col) == "|":
+                        walls_positions.append(((row, col), (row+2, col), "v"))
 
         return walls_positions
 

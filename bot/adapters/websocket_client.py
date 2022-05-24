@@ -1,5 +1,5 @@
 from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
-from bot.adapters.client import Client
+from adapters.client import Client
 import json
 
 
@@ -25,10 +25,10 @@ class WebsocketClient(Client):
             data = {
                     'game_id': request_data['data']['game_id'], 
                     'turn_token': request_data['data']['turn_token'], 
-                    'from_row': message.from_cells[0],
-                    'from_col':  message.from_cells[1],
-                    'to_row':  message.to_cells[0],
-                    'to_col':  message.to_cells[1],
+                    'from_row': message.from_cell[0],
+                    'from_col':  message.from_cell[1],
+                    'to_row':  message.to_cell[0],
+                    'to_col':  message.to_cell[1],
             }
 
         elif message.type == MOVE_TYPE_WALL:
@@ -36,8 +36,8 @@ class WebsocketClient(Client):
             data = {
                 'game_id': request_data['data']['game_id'],
                 'turn_token': request_data['data']['turn_token'], 
-                'row': message.to_cells[0], 
-                'col': message.to_cells[1], 
+                'row': message.to_cell[0], 
+                'col': message.to_cell[1], 
                 'orientation': 'h'
             }
 

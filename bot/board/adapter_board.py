@@ -22,17 +22,17 @@ class AdapterBoard():
 
         adapted_positions = []
         
-        # TODO: ver si se puede mejorar lógica
-        for position in positions_list: 
-            if len(positions_list) < 1:
-                adapted_row1 = position[0] // 2
-                adapted_col1 = position[1] // 2
-                adapted_positions.append((adapted_row1, adapted_col1))
-            else:
-                adapted_row1 = position[0][0] // 2
-                adapted_col1 = position[0][1] // 2
-                adapted_row2 = position[1][0] // 2
-                adapted_col2 = position[1][1] // 2
-                adapted_positions.append(((adapted_row1, adapted_col1), (adapted_row2, adapted_col2)))
+        for (tuple1, tuple2, orientation) in positions_list: 
+            adapted_row1 = tuple1[0] // 2
+            adapted_col1 = tuple1[1] // 2
+            adapted_row2 = tuple2[0] // 2
+            adapted_col2 = tuple2[1] // 2
+            adapted_positions.append(
+                (
+                    (adapted_row1, adapted_col1), 
+                    (adapted_row2, adapted_col2),
+                    orientation
+                )
+            )
         
         return adapted_positions
