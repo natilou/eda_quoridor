@@ -1,6 +1,6 @@
 from bot.board.adapter_board import AdapterBoard
 from bot.domains.move import Move
-from bot.constants import MOVE_TYPE_PAWN, FINAL_ROW, FINAL_COL, INICIAL_COL, INICIAL_ROW
+from bot.constants import MOVE_TYPE_PAWN, FINAL_ROW, FINAL_COL, INITIAL_COL, INITIAL_ROW
 from typing import Set
 
 
@@ -49,7 +49,7 @@ class BoardExpertPawns:
 
             # font jump  
             if (
-                ((row+move_forward) != FINAL_ROW or (row+move_forward) != INICIAL_ROW)
+                ((row+move_forward) != FINAL_ROW or (row+move_forward) != INITIAL_ROW)
                 and (row+move_forward, col) in opponent_pawns_positions
                 and (row, col) not in cells_with_walls
                 and (row+move_forward, col) not in cells_with_walls
@@ -91,7 +91,7 @@ class BoardExpertPawns:
                     )
         
             # move to left side
-            if col > INICIAL_COL:
+            if col > INITIAL_COL:
                 if (row, col) in cells_with_walls and (row, col-1) not in cells_with_walls and (row, col-1) not in opponent_pawns_positions:
                     all_available_moves_to_sides.append(
                         Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row, col-1))

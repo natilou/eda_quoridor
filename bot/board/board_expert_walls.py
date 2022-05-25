@@ -1,7 +1,7 @@
 from bot.board.adapter_board import AdapterBoard
 from bot.domains.move import Move
 from bot.domains.wall_move import WallMove
-from bot.constants import FINAL_ROW, MOVE_TYPE_WALL, INICIAL_COL, INICIAL_ROW, FINAL_COL
+from bot.constants import FINAL_ROW, MOVE_TYPE_WALL, INITIAL_COL, INITIAL_ROW, FINAL_COL
 from typing import List
 
 class BoardExpertWalls: 
@@ -14,7 +14,7 @@ class BoardExpertWalls:
         cells_to_block = []
 
         for (row, col) in opponent_pawns_positions:
-            if (row > INICIAL_ROW and row < FINAL_ROW) and (col > INICIAL_COL and col < FINAL_COL):
+            if (row > INITIAL_ROW and row < FINAL_ROW) and (col > INITIAL_COL and col < FINAL_COL):
                 cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col), orientation="h"))
                 cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="h"))
                 cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col), orientation="v"))

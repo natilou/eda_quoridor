@@ -11,7 +11,7 @@ class Client(ABC):
         pass
 
     @abstractmethod
-    async def send_message(self, request_data, message):
+    async def send_message(self, request_data, move):
         pass
 
     @abstractmethod

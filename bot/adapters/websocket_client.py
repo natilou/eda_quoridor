@@ -18,27 +18,27 @@ class WebsocketClient(Client):
         print(f'Sending message: {message}')
         await self.client.send(message)
     
-    async def send_message(self, request_data, message):
+    async def send_message(self, request_data, move):
 
-        if message.type == MOVE_TYPE_PAWN:
-            action = message.type
+        if move.type == MOVE_TYPE_PAWN:
+            action = move.type
             data = {
                     'game_id': request_data['data']['game_id'], 
                     'turn_token': request_data['data']['turn_token'], 
-                    'from_row': message.from_cell[0],
-                    'from_col':  message.from_cell[1],
-                    'to_row':  message.to_cell[0],
-                    'to_col':  message.to_cell[1],
+                    'from_row': move.from_cell[0],
+                    'from_col':  move.from_cell[1],
+                    'to_row':  move.to_cell[0],
+                    'to_col':  move.to_cell[1],
             }
 
-        elif message.type == MOVE_TYPE_WALL:
-            action = message.type 
+        elif move.type == MOVE_TYPE_WALL:
+            action = move.type 
             data = {
                 'game_id': request_data['data']['game_id'],
                 'turn_token': request_data['data']['turn_token'], 
-                'row': message.to_cell[0], 
-                'col': message.to_cell[1], 
-                'orientation': 'h'
+                'row': move.to_cell[0], 
+                'col': move.to_cell[1], 
+                'orientation': move.orientation
             }
 
         else:

@@ -8,5 +8,7 @@ RUN pip install -r requirements.txt
 
 COPY . . 
 
-CMD ["python3", "/src/bot/game.py"]
+ENV PYTHONPATH=$PATH
+
+CMD ["python3", "bot/game.py"]
 
