@@ -1,10 +1,11 @@
+from bot.board.board_expert_walls import BoardExpertWalls
 from bot.strategies.strategy import Strategy
 from bot.board.visual_board import VisualBoard
-from bot.board.board_expert import BoardExpert
+from bot.board.board_expert_walls import BoardExpertWalls
 import random
 
 # Concrete Strategy
-class PutWall(Strategy): 
+class PutWallRandom(Strategy): 
 
     async def perform_an_action(self, request_data):
 
@@ -16,15 +17,16 @@ class PutWall(Strategy):
             board = VisualBoard(request_data['data']['board'])
     
             # look for cells close to pawns 
-            available_pawns_to_block = BoardExpert.slots_close_to_opposing_pawns(board, side)
+            available_pawns_to_block = BoardExpertWalls.get_available_slots(board, side)
 
             if available_pawns_to_block:
                 # select a cell to block
-                selected_cell = random.choice(list(available_pawns_to_block))
+                selected_cell = random.choice(available_pawns_to_block)
                 return selected_cell
-            else:       
-                raise Exception("No available moves")
 
-                
+        if self.get_next_strategy():
+            return await self.get_next_strategy().perform_an_action(request_data)
+
+        raise Exception("No available moves")
        
        
