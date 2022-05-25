@@ -14,13 +14,12 @@ class BoardExpertWalls:
         cells_to_block = []
 
         for (row, col) in opponent_pawns_positions:
-            if (row > INITIAL_ROW and row < FINAL_ROW) and (col > INITIAL_COL and col < FINAL_COL):
                 cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col), orientation="h"))
-                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="h"))
                 cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col), orientation="v"))
-                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row, col), orientation="v"))
-                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="v"))
-                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row, col-1), orientation="v"))
+                
+                if col > INITIAL_COL:
+                    cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="h"))
+                    cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="v"))
 
         return cells_to_block
 

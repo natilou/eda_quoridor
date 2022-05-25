@@ -11,25 +11,25 @@ class TestMovePawn:
             SCENARIO_WITHOUT_S_PAWNS,
             10,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 4), orientation="v")
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 3), orientation='h')
         ),
         (
             SCENARIO_WITHOUT_S_PAWNS,
             3,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 4), orientation="v")
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 3), orientation='h')
         ), 
         (
             SCENARIO_WITH_BOTH_PAWNS, 
             5,
             "N",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5, 6), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5, 5), orientation='h')
         ),
         (
             SCENARIO_WITH_BOTH_PAWNS,
             10,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 4), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 2), orientation='h')
         ), 
         (
             SCENARIO_WITHOUT_N_PAWNS, 
@@ -41,32 +41,32 @@ class TestMovePawn:
             SCENARIO_WITH_HORIZONTAL_WALLS,
             3,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 0), orientation='v')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2, 7), orientation='h')
             
         ), 
         (
             SCENARIO_WITH_HORIZONTAL_WALLS,
             7,
             "N",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 6), orientation='v')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 2), orientation='v')
         ), 
         (
             SCENARIO_WITH_VERTICAL_WALLS,
             9,
             "N",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 2), orientation='v')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 6), orientation='h')
         ),
         (
             SCENARIO_WITH_VERTICAL_WALLS,
             10,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 4), orientation='v')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2, 6), orientation='h')
         ),  
         (
             SCENARIO_WITHOUT_WALLS2,
             1,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7, 6), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 1), orientation='h')
         )
     ])
     @pytest.mark.asyncio
