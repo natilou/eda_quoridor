@@ -1,0 +1,40 @@
+from bot.board.adapter_board import AdapterBoard
+from bot.domains.move import Move
+from bot.domains.wall_move import WallMove
+from bot.constants import FINAL_ROW, MOVE_TYPE_WALL, INICIAL_COL, INICIAL_ROW, FINAL_COL
+from typing import List
+
+class BoardExpertWalls: 
+    
+    @staticmethod
+    def possible_cells_to_block(board, side) -> List[Move]:
+        opponent_pawns_positions = AdapterBoard.convert_pawn_positions(board.get_opponent_pawns(side))
+        in_front_of_opponent = -1 if side == "N" else 0
+
+        cells_to_block = []
+
+        for (row, col) in opponent_pawns_positions:
+            if (row > INICIAL_ROW and row < FINAL_ROW) and (col > INICIAL_COL and col < FINAL_COL):
+                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col), orientation="h"))
+                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="h"))
+                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col), orientation="v"))
+                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row, col), orientation="v"))
+                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row+in_front_of_opponent, col-1), orientation="v"))
+                cells_to_block.append(WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(row, col-1), orientation="v"))
+
+        return cells_to_block
+
+    @staticmethod
+    def get_available_slots(board, side) -> List[Move]:
+        walls_positions = AdapterBoard.convert_wall_positions(board.get_walls_positions())
+        possible_cells_to_block = BoardExpertWalls.possible_cells_to_block(board, side)
+
+        available_slots = list(possible_cells_to_block)
+
+        for move in possible_cells_to_block:
+            for (tuple1, tuple2, orientation) in walls_positions:
+                if ((move.to_cell[0], move.to_cell[1]) == tuple1 or (move.to_cell[0], move.to_cell[1]) == tuple2):
+                    available_slots.remove((WallMove(MOVE_TYPE_WALL, (), (move.to_cell[0], move.to_cell[1]), move.orientation)))
+        
+        return available_slots
+        
