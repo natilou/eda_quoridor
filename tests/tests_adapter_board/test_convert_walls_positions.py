@@ -3,7 +3,7 @@ from bot.board.adapter_board import AdapterBoard
 from test_scenarios import *
 import pytest
 
-class TestAdapterBoard():
+class TestAdapterWallsPositions():
     @pytest.mark.parametrize("board, expected", [
         (
             SCENARIO_WITHOUT_S_PAWNS,

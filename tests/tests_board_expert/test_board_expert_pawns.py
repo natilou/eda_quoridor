@@ -1,11 +1,11 @@
 from bot.board.visual_board import VisualBoard
-from bot.board.board_expert import BoardExpert
+from bot.board.board_expert_pawns import BoardExpertPawns
 from bot.domains.move import Move
-from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
+from bot.constants import MOVE_TYPE_PAWN
 from test_scenarios import *
 import pytest
 
-class TestBoardExpert():
+class TestBoardExpertPawns():
     @pytest.mark.parametrize("board,side,expected", [
         (
             SCENARIO_WITHOUT_S_PAWNS,
@@ -90,80 +90,7 @@ class TestBoardExpert():
             ]
         )
     ])
-
     def test_check_available_moves(self, board, side, expected):
         board = VisualBoard(board)
-        result = BoardExpert.check_available_moves(board, side)
+        result = BoardExpertPawns.get_available_moves(board, side)
         assert result == expected
-
-
-    @pytest.mark.parametrize("board,side,expected", [
-        (
-            SCENARIO_WITHOUT_S_PAWNS,
-            "S", 
-            {
-               Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0)),
-               Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4)),
-            }
-        ),
-        (
-            SCENARIO_WITHOUT_S_PAWNS,
-            "N", 
-            set()
-        ),
-        (
-            SCENARIO_WITH_BOTH_PAWNS, 
-            "N",
-            {
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3)), #TODO: ver por qué no aparece
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,6)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7,4)),
-            }
-        ),
-        (
-            SCENARIO_WITH_BOTH_PAWNS,
-            "S", 
-            {
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,6)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,4)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3)),
-                
-            }
-        ), 
-        (
-            SCENARIO_WITHOUT_N_PAWNS, 
-            "S",
-            set()
-        ), 
-        (
-            SCENARIO_WITH_HORIZONTAL_WALLS,
-           "S",
-            {
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,8)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,4)),                 
-            }            
-        ), 
-        (
-            SCENARIO_WITH_HORIZONTAL_WALLS,
-           "N",
-            {
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0)),           
-            },
-        ),
-        (
-            SCENARIO_WITH_VERTICAL_WALLS,
-            "N",
-            {
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6)),
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2)), 
-                Move(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0)),         
-            },
-        ) 
-    ])
-    def test_slots_close_to_opposing_pawns(self, board, side, expected):
-        board = VisualBoard(board)
-        result = BoardExpert.slots_close_to_opposing_pawns(board, side)
-        assert result == expected
-    
