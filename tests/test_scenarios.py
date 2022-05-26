@@ -160,3 +160,27 @@ SCENARIO_WITHOUT_WALLS2 = (
     "                 "
     "                 "
 )
+
+SCENARIO = (
+    "              N N                     N S       S                                                                   S                                                                                        |                *      -*-       |                       -*-                       "
+)
+
+SCENARIO_MIDDLE_WALLS = (
+    "  N              "
+    "                 "
+    "      N          "
+    "    -*-          "
+    "                 "
+    "                 "
+    "              N  "
+    "-*- -*- -*- -*-  "
+    "                S"
+    "                 "
+    "      S          "
+    "                 "
+    "                 "
+    "                 "
+    "    S            "
+    "                 "
+    "                 "
+)

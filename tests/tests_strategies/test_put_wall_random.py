@@ -67,6 +67,24 @@ class TestMovePawn:
             1,
             "S",
             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 1), orientation='h')
+        ), 
+        (
+            SCENARIO, 
+            10, 
+            "S",
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 1), orientation='h')
+        ), 
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            10, 
+            "N",
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 1), orientation='h')
+        ), 
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            10, 
+            "S",
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 1), orientation='h')
         )
     ])
     @pytest.mark.asyncio

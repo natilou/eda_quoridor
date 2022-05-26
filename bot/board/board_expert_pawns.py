@@ -40,35 +40,40 @@ class BoardExpertPawns:
         all_available_moves_forward = []
         
         for (row, col) in my_pawns_positions:
+            if (side == "S" and row > INITIAL_ROW) or (side == "N" and row < FINAL_ROW):
+                # move forward            
+                if (row+move_forward, col) not in opponent_pawns_positions and (row, col) not in cells_with_walls:
+                    all_available_moves_forward.append(
+                        Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row+move_forward, col))
+                    )
 
-            # move forward            
-            if (row+move_forward, col) not in opponent_pawns_positions and (row, col) not in cells_with_walls:
-                all_available_moves_forward.append(
-                    Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row+move_forward, col))
-                )
+                # font jump 
+                if (
+                    (row+move_forward, col) in opponent_pawns_positions
+                    and (row, col) not in cells_with_walls
+                    and (row+move_forward, col) not in cells_with_walls
+                    and (
+                        (side == "N" and (row+move_forward+move_forward) < FINAL_ROW) 
+                        or (side == "S" and (row+move_forward+move_forward) > INITIAL_ROW)
+                        )
+                    and (row+move_forward+move_forward, col) not in opponent_pawns_positions 
+                    and (row+move_forward+move_forward, col) not in cells_with_walls
+                ):
+                    all_available_moves_forward.append(
+                        Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row+move_forward+move_forward, col))
+                    )
 
-            # font jump  
-            if (
-                ((row+move_forward) != FINAL_ROW or (row+move_forward) != INITIAL_ROW)
-                and (row+move_forward, col) in opponent_pawns_positions
-                and (row, col) not in cells_with_walls
-                and (row+move_forward, col) not in cells_with_walls
-            ):
-                all_available_moves_forward.append(
-                    Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row+move_forward+move_forward, col))
-                )
-
-            # diagonal jump 
-            if (
-                (row+move_forward, col) in opponent_pawns_positions 
-                and (row, col) not in cells_with_walls 
-                and (row+move_forward, col) in cells_with_walls 
-                and (row+move_forward, col-1) not in cells_with_walls 
-                and (row+move_forward, col-1) not in opponent_pawns_positions
-            ):
-                all_available_moves_forward.append(
-                    Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row+move_forward, col-1))
-                )
+                # diagonal jump 
+                if (
+                    (row+move_forward, col) in opponent_pawns_positions 
+                    and (row, col) not in cells_with_walls 
+                    and (row+move_forward, col) in cells_with_walls 
+                    and (row+move_forward, col-1) not in cells_with_walls 
+                    and (row+move_forward, col-1) not in opponent_pawns_positions
+                ):
+                    all_available_moves_forward.append(
+                        Move(type=MOVE_TYPE_PAWN, from_cell=(row, col), to_cell=(row+move_forward, col-1))
+                    )
         return all_available_moves_forward
 
     @staticmethod

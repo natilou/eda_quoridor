@@ -74,7 +74,28 @@ class TestAdapterWallsPositions():
             SCENARIO_WITHOUT_WALLS,
             "N",
             [(2,4), (6,2), (7,6)]
-        ), 
+        ),
+        (
+            SCENARIO,
+            "S",
+            [(1, 3), (1, 7), (3, 7)]
+        ),
+        (
+            SCENARIO,
+            "N",
+            [(0, 7), (0, 8), (1, 2)]
+        ),
+        (
+            SCENARIO_MIDDLE_WALLS,
+            "S",
+            [(4, 8), (5, 3), (7, 2)]
+        ),
+        (
+            SCENARIO_MIDDLE_WALLS,
+            "N",
+            [(0, 1), (1, 3), (3, 7)]
+        ),
+
     ])    
     def test_convert_pawn_positions(self, board, side, expected):
         pawn_board = VisualBoard(board)

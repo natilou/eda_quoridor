@@ -67,6 +67,24 @@ class TestMovePawn:
             105,
             "S",
             Move(type=MOVE_TYPE_PAWN, from_cell=(4,4), to_cell=(3,4))
+        ), 
+        (
+            SCENARIO, 
+            9, 
+            "S",
+            Move(type=MOVE_TYPE_PAWN, from_cell=(3,7), to_cell=(2, 7)) 
+        ),
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            9, 
+            "N",
+            Move(type=MOVE_TYPE_PAWN, from_cell=(3, 7), to_cell=(3, 8))
+        ),
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            9, 
+            "S",
+            Move(type=MOVE_TYPE_PAWN, from_cell=(5, 3), to_cell=(4, 3))
         )
     ])
     @pytest.mark.asyncio

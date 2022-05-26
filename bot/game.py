@@ -1,7 +1,7 @@
-from bot.constants import URL
-from bot.adapters.websocket_client import WebsocketClient
-from bot.strategies.move_pawn_random import MovePawnRandom
-from bot.strategies.put_wall_random import PutWallRandom
+from constants import URL
+from adapters.websocket_client import WebsocketClient
+from strategies.move_pawn_random import MovePawnRandom
+from strategies.put_wall_random import PutWallRandom
 import asyncio
 import websockets 
 import json
@@ -62,7 +62,7 @@ class Game:
     async def play_turn(self, request_data):
         move_pawn_random = MovePawnRandom()
         put_wall_random = PutWallRandom()
-        move_pawn_random.set_next(put_wall_random)
+        put_wall_random.set_next(move_pawn_random)
 
         move = await move_pawn_random.perform_an_action(request_data)
         await self.client.send_message(request_data, move)

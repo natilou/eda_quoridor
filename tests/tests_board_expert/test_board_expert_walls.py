@@ -111,6 +111,50 @@ class TestBoardExpertWalls():
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6), orientation="h"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6), orientation="v"),        
             ],
+        ), 
+        (
+            SCENARIO, 
+            "S", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 6), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 6), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 8), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 8), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 1), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 1), orientation='v'),
+            ]
+        ), 
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            "S", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(0, 1), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 1), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 0), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 0), orientation='v'),
+            ]
+        ), 
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            "N", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(3, 8), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 8), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 3), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 3), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 1), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 1), orientation='v'),
+            ]
         ) 
     ])
     def test_get_available_cells(self, board, side, expected):
@@ -247,7 +291,62 @@ class TestBoardExpertWalls():
                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3), orientation="h"),
                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3), orientation="v"),
             ]  
-        ) 
+        ), 
+        (
+            SCENARIO, 
+            "S", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 6), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 6), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 8), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 8), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 1), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 1), orientation='v'),
+            ]
+        ), 
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            "S", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(0, 1), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 1), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 0), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 0), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 3), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 3), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 6), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 6), orientation='v'), 
+            ]
+        ), 
+        (
+            SCENARIO_MIDDLE_WALLS, 
+            "N", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(3, 8), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 8), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(3, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 3), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 3), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(4, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 1), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(6, 1), orientation='v'),
+            ]
+        )
+
     ])   
     def test_possible_cells_to_block(self, board, side, expected):
         board = VisualBoard(board)
