@@ -95,6 +95,16 @@ class TestAdapterWallsPositions():
             "N",
             [(0, 1), (1, 3), (3, 7)]
         ),
+        (
+            SCENARIO_RANDOM2, 
+            "N", 
+            [(5, 7), (5, 8), (7, 6)]
+        ), 
+        (
+            SCENARIO_RANDOM2, 
+            "S", 
+            [(4, 3), (8, 4), (8, 7)]
+        )
 
     ])    
     def test_convert_pawn_positions(self, board, side, expected):

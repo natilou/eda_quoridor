@@ -41,7 +41,7 @@ class TestMovePawn:
             SCENARIO_WITH_HORIZONTAL_WALLS,
             3,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2, 7), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 0), orientation='h')
             
         ), 
         (
@@ -72,7 +72,7 @@ class TestMovePawn:
             SCENARIO_RANDOM, 
             10, 
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0, 7), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1, 2), orientation='h')
         ),
         ( 
             SCENARIO_RANDOM, 
@@ -84,7 +84,7 @@ class TestMovePawn:
             SCENARIO_MIDDLE_WALLS, 
             10, 
             "N",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 2), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 1), orientation='h')
         ), 
         (
             SCENARIO_MIDDLE_WALLS, 

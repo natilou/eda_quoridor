@@ -184,3 +184,8 @@ SCENARIO_MIDDLE_WALLS = (
     "                 "
     "                 "
 )
+
+SCENARIO_RANDOM2 = (
+    "                                                                                                             |         -*-    *               S|               -*- -*-                  N N            -*-                           -*- -*-              N              -*- -*-        S     S  "
+
+)
