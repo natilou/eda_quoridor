@@ -50,7 +50,7 @@ class WebsocketClient(Client):
         }
 
     async def send_message(self, request_data, move):
-        message = WebsocketClient.build_message(request_data, move)
+        message = WebsocketClient.build_message(move, request_data)
         await self.send(message["action"], message["data"])
 
     async def receive_request(self):

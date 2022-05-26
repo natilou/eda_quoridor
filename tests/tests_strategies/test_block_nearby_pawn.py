@@ -1,7 +1,8 @@
-from bot.strategies.move_pawn_random import MovePawnRandom
+from bot.strategies.move_advanced_pawn import MoveAdvancedPawn
 from bot.strategies.block_nearby_pawn import BlockNearbyPawn
 from bot.domains.wall_move import WallMove
-from bot.constants import MOVE_TYPE_WALL
+from bot.domains.move import Move
+from bot.constants import MOVE_TYPE_WALL, MOVE_TYPE_PAWN
 from test_scenarios import *
 import pytest
 
@@ -36,7 +37,6 @@ class TestMovePawn:
             3,
             "S",
             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,0), orientation="h"),
-            
         ), 
         (
             SCENARIO_WITH_HORIZONTAL_WALLS,
@@ -84,7 +84,7 @@ class TestMovePawn:
             SCENARIO_MIDDLE_WALLS, 
             10, 
             "S",
-            WallMove(type='wall', from_cell=(), to_cell=(0, 0), orientation='h')
+            Move(type=MOVE_TYPE_PAWN, from_cell=(4, 8), to_cell=(3, 8))
         )
     ])
     @pytest.mark.asyncio
@@ -94,11 +94,12 @@ class TestMovePawn:
                 "board": board, 
                 "side": side, 
                 "walls": walls,
+                "remaining_moves": 50
             }
         }
-        move_pawn_random = MovePawnRandom()
+        move_advanced_pawn = MoveAdvancedPawn()
         put_wall = BlockNearbyPawn()
-        put_wall.set_next(move_pawn_random)
+        put_wall.set_next(move_advanced_pawn)
         move = await put_wall.perform_an_action(request_data)
         assert move == expected
    
