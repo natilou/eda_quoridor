@@ -15,7 +15,6 @@ class VisualBoard:
             formatted_board.append(list(board_data_row))
             num_row += VISUAL_BOARD_DIMENSION
             length_row += VISUAL_BOARD_DIMENSION
-
         return formatted_board
 
     def get_cell(self, row, col):
