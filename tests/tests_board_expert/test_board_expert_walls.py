@@ -12,8 +12,6 @@ class TestBoardExpertWalls():
             SCENARIO_WITHOUT_S_PAWNS,  
             "S", 
             [
-               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),
-               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="v"),
                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0), orientation="h"),
                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0), orientation="v"),
                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4), orientation="h"),
@@ -79,8 +77,6 @@ class TestBoardExpertWalls():
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,3), orientation="v"),   
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,7), orientation="h"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,7), orientation="v"),
-                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,0), orientation="h"),
-                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,0), orientation="v"),
                                 
             ]            
         ), 
@@ -90,8 +86,6 @@ class TestBoardExpertWalls():
             [
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="v"),  
-                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,2), orientation="h"),
-                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,2), orientation="v"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7), orientation="h"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7), orientation="v"),           
             ],
@@ -100,8 +94,6 @@ class TestBoardExpertWalls():
             SCENARIO_WITH_VERTICAL_WALLS,
             "N",
             [   
-                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,1), orientation="h"),
-                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,1), orientation="v"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="v"),
                 WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2), orientation="h"),

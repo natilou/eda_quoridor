@@ -104,6 +104,16 @@ class TestAdapterWallsPositions():
             SCENARIO_RANDOM2, 
             "S", 
             [(4, 3), (8, 4), (8, 7)]
+        ), 
+        (
+            SCENARIO_RANDOM3, 
+            "N",
+            [(0, 1), (0, 4), (0, 7)]
+        ), 
+        (
+            SCENARIO_RANDOM3, 
+            "S",
+            [(7, 3), (8, 1), (8, 7)]
         )
 
     ])    

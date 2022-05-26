@@ -11,13 +11,13 @@ class TestMovePawn:
             SCENARIO_WITHOUT_S_PAWNS,
             10,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 3), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 4), orientation='v')
         ),
         (
             SCENARIO_WITHOUT_S_PAWNS,
             3,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 3), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4), orientation='v')
         ), 
         (
             SCENARIO_WITH_BOTH_PAWNS, 
@@ -41,26 +41,26 @@ class TestMovePawn:
             SCENARIO_WITH_HORIZONTAL_WALLS,
             3,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 0), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0, 3), orientation='v')
             
         ), 
         (
             SCENARIO_WITH_HORIZONTAL_WALLS,
             7,
             "N",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4, 2), orientation='v')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5, 7), orientation='v')
         ), 
         (
             SCENARIO_WITH_VERTICAL_WALLS,
             9,
             "N",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6, 6), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 2), orientation='v')
         ),
         (
             SCENARIO_WITH_VERTICAL_WALLS,
             10,
             "S",
-            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2, 6), orientation='h')
+            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3, 4), orientation='h')
         ),  
         (
             SCENARIO_WITHOUT_WALLS2,

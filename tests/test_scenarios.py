@@ -189,3 +189,5 @@ SCENARIO_RANDOM2 = (
     "                                                                                                             |         -*-    *               S|               -*- -*-                  N N            -*-                           -*- -*-              N              -*- -*-        S     S  "
 
 )
+
+SCENARIO_RANDOM3 = ("  N     N     N                                                                        -*-                                                                                                                                           -*-            S            -*-              S           S  ")

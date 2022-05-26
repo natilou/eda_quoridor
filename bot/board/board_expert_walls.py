@@ -35,6 +35,19 @@ class BoardExpertWalls:
             for (tuple1, tuple2, orientation) in walls_positions:
                 if ((move.to_cell[0], move.to_cell[1]) == tuple1 or (move.to_cell[0], move.to_cell[1]) == tuple2):
                     available_slots.remove((WallMove(MOVE_TYPE_WALL, (), (move.to_cell[0], move.to_cell[1]), move.orientation)))
+                    break
+                if (
+                    ((move.to_cell[0], move.to_cell[1]+1) == tuple1 or (move.to_cell[0], move.to_cell[1]+1) == tuple2)
+                    and orientation == "h" 
+                    ):
+                    available_slots.remove((WallMove(MOVE_TYPE_WALL, (), (move.to_cell[0], move.to_cell[1]), move.orientation)))
+                    break
+                if (
+                    ((move.to_cell[0]+1, move.to_cell[1]) == tuple1 or (move.to_cell[0]+1, move.to_cell[1]) == tuple2)
+                    and orientation == "v" 
+                    ):
+                    available_slots.remove((WallMove(MOVE_TYPE_WALL, (), (move.to_cell[0], move.to_cell[1]), move.orientation)))
+                    break
         
         return available_slots
         
