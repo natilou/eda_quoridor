@@ -69,10 +69,16 @@ class TestMovePawn:
             Move(type=MOVE_TYPE_PAWN, from_cell=(4,4), to_cell=(3,4))
         ), 
         (
-            SCENARIO, 
+            SCENARIO_RANDOM, 
             9, 
             "S",
             Move(type=MOVE_TYPE_PAWN, from_cell=(3,7), to_cell=(2, 7)) 
+        ),
+        (
+            SCENARIO_RANDOM, 
+            1, 
+            "N",
+            Move(type=MOVE_TYPE_PAWN, from_cell=(0, 8), to_cell=(1, 8)) 
         ),
         (
             SCENARIO_MIDDLE_WALLS, 

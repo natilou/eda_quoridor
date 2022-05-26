@@ -90,7 +90,7 @@ class TestBoardExpertPawns():
             ]
         ), 
         (
-            SCENARIO, 
+            SCENARIO_RANDOM, 
             "S",
             [
                 Move(type=MOVE_TYPE_PAWN, from_cell=(1, 3), to_cell=(0, 3)),
@@ -98,7 +98,7 @@ class TestBoardExpertPawns():
             ]
         ),
         (
-            SCENARIO, 
+            SCENARIO_RANDOM, 
             "N",
             [
                 Move(type=MOVE_TYPE_PAWN, from_cell=(0, 7), to_cell=(2, 7)),

@@ -161,7 +161,7 @@ SCENARIO_WITHOUT_WALLS2 = (
     "                 "
 )
 
-SCENARIO = (
+SCENARIO_RANDOM = (
     "              N N                     N S       S                                                                   S                                                                                        |                *      -*-       |                       -*-                       "
 )
 

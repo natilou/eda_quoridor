@@ -72,7 +72,7 @@ class TestAdapterWallsPositions():
             []
         ), 
         (
-            SCENARIO, 
+            SCENARIO_RANDOM, 
             [
                 ((6, 0), (7, 0), 'v'), 
                 ((6, 4), (6, 5), 'h'), 

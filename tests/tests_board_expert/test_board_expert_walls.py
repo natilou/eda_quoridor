@@ -113,7 +113,7 @@ class TestBoardExpertWalls():
             ],
         ), 
         (
-            SCENARIO, 
+            SCENARIO_RANDOM, 
             "S", 
             [
                 WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
@@ -128,6 +128,24 @@ class TestBoardExpertWalls():
                 WallMove(type='wall', from_cell=(), to_cell=(1, 2), orientation='v'),
                 WallMove(type='wall', from_cell=(), to_cell=(1, 1), orientation='h'),
                 WallMove(type='wall', from_cell=(), to_cell=(1, 1), orientation='v'),
+            ]
+        ),
+        (
+            SCENARIO_RANDOM, 
+            "N", 
+            [
+                WallMove(type='wall', from_cell=(), to_cell=(0, 3), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 3), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 2), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 2), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 6), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(0, 6), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(2, 7), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(2, 7), orientation='v'),
+                WallMove(type='wall', from_cell=(), to_cell=(2, 6), orientation='h'),
+                WallMove(type='wall', from_cell=(), to_cell=(2, 6), orientation='v'),
             ]
         ), 
         (
@@ -293,7 +311,7 @@ class TestBoardExpertWalls():
             ]  
         ), 
         (
-            SCENARIO, 
+            SCENARIO_RANDOM, 
             "S", 
             [
                 WallMove(type='wall', from_cell=(), to_cell=(0, 7), orientation='h'),
