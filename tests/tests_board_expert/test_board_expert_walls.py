@@ -7,75 +7,116 @@ import pytest
 
 class TestBoardExpertWalls():
 
-    # @pytest.mark.parametrize("board,side,expected", [
-    #     (  
-    #         SCENARIO_WITHOUT_S_PAWNS,  
-    #         "S", 
-    #         {
-    #            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0), orientation="h"),
-    #            WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4), orientation="h"),
-    #         }
-    #     ),
-    #     (
-    #         SCENARIO_WITHOUT_S_PAWNS,
-    #         "N", 
-    #         set()
-    #     ),
-    #     (
-    #         SCENARIO_WITH_BOTH_PAWNS, 
-    #         "N",
-    #         {
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,6), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7,4), orientation="h"),
-    #         }
-    #     ),
-    #     (
-    #         SCENARIO_WITH_BOTH_PAWNS,
-    #         "S", 
-    #         {
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,6), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,4), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3), orientation="h"),
-                
-    #         }
-    #     ), 
-    #     (
-    #         SCENARIO_WITHOUT_N_PAWNS, 
-    #         "S",
-    #         set()
-    #     ), 
-    #     (
-    #         SCENARIO_WITH_HORIZONTAL_WALLS,
-    #        "S",
-    #         {
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,8), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,4), orientation="h"),                 
-    #         }            
-    #     ), 
-    #     (
-    #         SCENARIO_WITH_HORIZONTAL_WALLS,
-    #        "N",
-    #         {
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),           
-    #         },
-    #     ),
-    #     (
-    #         SCENARIO_WITH_VERTICAL_WALLS,
-    #         "N",
-    #         {
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6), orientation="h"),
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2), orientation="h"), 
-    #             WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),         
-    #         },
-    #     ) 
-    # ])
-    # def test_get_available_cells(self, board, side, expected):
-    #     board = VisualBoard(board)
-    #     result = BoardExpertWalls.get_available_slots(board, side)
-    #     assert result == expected
+    @pytest.mark.parametrize("board,side,expected", [
+        (  
+            SCENARIO_WITHOUT_S_PAWNS,  
+            "S", 
+            [
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="v"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0), orientation="h"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,0), orientation="v"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4), orientation="h"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,4), orientation="v"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3), orientation="h"),
+               WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3), orientation="v"),
+            ]
+        ),
+        (
+            SCENARIO_WITHOUT_S_PAWNS,
+            "N", 
+            []
+        ),
+        (
+            SCENARIO_WITH_BOTH_PAWNS, 
+            "N",
+            [
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,3), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,2), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,2), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,6), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,6), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,5), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,5), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7,4), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7,4), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7,3), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(7,3), orientation="v"),
+            ]
+        ),
+        (
+            SCENARIO_WITH_BOTH_PAWNS,
+            "S",
+            [
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,6), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,6), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,5), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,5), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3), orientation="h"), 
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,3), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2), orientation="h"), 
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2), orientation="v"),  
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,4), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,4), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,3), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,3), orientation="v"),
+                 
+            ]
+        ), 
+        (
+            SCENARIO_WITHOUT_N_PAWNS, 
+            "S",
+            []
+        ), 
+        (
+            SCENARIO_WITH_HORIZONTAL_WALLS,
+            "S",
+            [
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,4), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,4), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,3), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(0,3), orientation="v"),   
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,8), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,8), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,7), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(2,7), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,0), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,0), orientation="v"),
+                                
+            ]            
+        ), 
+        (
+            SCENARIO_WITH_HORIZONTAL_WALLS,
+            "N",
+            [
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="v"),  
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,2), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(4,2), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(5,7), orientation="v"),           
+            ],
+        ),
+        (
+            SCENARIO_WITH_VERTICAL_WALLS,
+            "N",
+            [   
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,1), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,1), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(1,0), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(3,2), orientation="v"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6), orientation="h"),
+                WallMove(type=MOVE_TYPE_WALL, from_cell=(), to_cell=(6,6), orientation="v"),        
+            ],
+        ) 
+    ])
+    def test_get_available_cells(self, board, side, expected):
+        board = VisualBoard(board)
+        result = BoardExpertWalls.get_available_slots(board, side)
+        assert result == expected
     
 
     @pytest.mark.parametrize("board,side,expected", [
