@@ -53,6 +53,13 @@ class Game:
             
                 elif request_data['event'] == 'your_turn':
                     await self.play_turn(request_data)
+                
+                elif request_data['event'] == "game_over":
+                    scores = {
+                        request_data["data"]["player_1"]: request_data["data"]["score_1"], 
+                        request_data["data"]["player_2"]: request_data["data"]["score_2"]
+                    }
+                    print(f"GAME OVER: {scores}")
 
                 else:
                     print(f"Unknown event: {request_data}")
@@ -78,13 +85,7 @@ class Game:
         move_pawn_random.set_next(put_wall_random)
         
         move = await front_jump.perform_an_action(request_data)
-        await self.client.send_message(request_data, move)
-        Game.show_move(move)
-        
-
-    @staticmethod
-    def show_move(move):
-        return move
+        await self.client.send_message(request_data, move)        
 
 
 if __name__ == "__main__":
