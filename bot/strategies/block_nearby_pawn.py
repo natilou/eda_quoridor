@@ -2,7 +2,7 @@ from bot.board.board_expert_walls import BoardExpertWalls
 from bot.strategies.strategy import Strategy
 from bot.board.visual_board import VisualBoard
 from bot.board.board_expert_walls import BoardExpertWalls
-from bot.domains.sorter import Sorter
+from bot.sorter_by_row import sort_by_row
 
 # Concrete Strategy
 class BlockNearbyPawn(Strategy): 
@@ -26,7 +26,7 @@ class BlockNearbyPawn(Strategy):
                         horizontal_walls.append(move)
                 
                 if horizontal_walls:
-                    sorted_horizontal_walls = sorted(horizontal_walls, key=Sorter.sort)
+                    sorted_horizontal_walls = sorted(horizontal_walls, key=sort_by_row)
                     return sorted_horizontal_walls[0] if side == "N" else sorted_horizontal_walls[-1]
 
         if self.get_next_strategy():

@@ -1,7 +1,7 @@
 from bot.board.board_expert_pawns import BoardExpertPawns
 from bot.strategies.strategy import Strategy
 from bot.board.visual_board import VisualBoard
-from bot.domains.sorter import Sorter
+from bot.sorter_by_row import sort_by_row
 
 # Concrete Strategy
 class MoveAdvancedPawn(Strategy):
@@ -19,7 +19,7 @@ class MoveAdvancedPawn(Strategy):
 
             if available_actions:
                 # sort Moves by advanced cells to move
-                sorted_available_actions = sorted(available_actions, key=Sorter.sort)
+                sorted_available_actions = sorted(available_actions, key=sort_by_row)
                 
                 # choose advanced pawn
                 selected_pawn = sorted_available_actions[0] if side == "S" else sorted_available_actions[-1]

@@ -1,9 +1,9 @@
-from constants import URL
-from adapters.websocket_client import WebsocketClient
-from strategies.move_advanced_pawn import MoveAdvancedPawn
-from strategies.move_pawn_random import MovePawnRandom
-from strategies.front_jump import FrontJump
-from strategies.put_wall_random import PutWallRandom
+from bot.constants import URL
+from bot.adapters.websocket_client import WebsocketClient
+from bot.strategies.move_advanced_pawn import MoveAdvancedPawn
+from bot.strategies.move_pawn_random import MovePawnRandom
+from bot.strategies.front_jump import FrontJump
+from bot.strategies.put_wall_random import PutWallRandom
 from bot.strategies.block_nearby_pawn import BlockNearbyPawn
 import asyncio
 import websockets 
@@ -65,19 +65,19 @@ class Game:
     async def play_turn(self, request_data):
 
         # strategies initialization 
-        block_nearby_pawn = BlockNearbyPawn()
         front_jump = FrontJump()
-        move_advanced_pawn = MoveAdvancedPawn
+        block_nearby_pawn = BlockNearbyPawn()
+        move_advanced_pawn = MoveAdvancedPawn()
         move_pawn_random = MovePawnRandom()
         put_wall_random = PutWallRandom()
 
         # assign chain of responsibility
-        block_nearby_pawn.set_next(front_jump)
-        front_jump.set_next(move_advanced_pawn)
+        front_jump.set_next(block_nearby_pawn)
+        block_nearby_pawn.set_next(move_advanced_pawn)
         move_advanced_pawn.set_next(move_pawn_random)
         move_pawn_random.set_next(put_wall_random)
         
-        move = await block_nearby_pawn.perform_an_action(request_data)
+        move = await front_jump.perform_an_action(request_data)
         await self.client.send_message(request_data, move)
 
 

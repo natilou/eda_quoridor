@@ -1,5 +1,5 @@
-from constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
-from adapters.client import Client
+from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
+from bot.adapters.client import Client
 import json
 
 
@@ -18,8 +18,8 @@ class WebsocketClient(Client):
         print(f'Sending message: {message}')
         await self.client.send(message)
     
-    async def send_message(self, request_data, move):
-
+    @staticmethod
+    def build_message(move, request_data):
         if move.type == MOVE_TYPE_PAWN:
             action = move.type
             data = {
@@ -43,8 +43,15 @@ class WebsocketClient(Client):
 
         else:
             raise Exception("Invalid message type")
-        
-        await self.send(action, data)
+
+        return {
+            "action": action, 
+            "data": data
+        }
+
+    async def send_message(self, request_data, move):
+        message = WebsocketClient.build_message(request_data, move)
+        await self.send(message["action"], message["data"])
 
     async def receive_request(self):
         return await self.client.recv()
