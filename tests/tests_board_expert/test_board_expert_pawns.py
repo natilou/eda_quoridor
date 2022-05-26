@@ -1,7 +1,7 @@
 from bot.board.visual_board import VisualBoard
 from bot.board.board_expert_pawns import BoardExpertPawns
 from bot.domains.move import Move
-from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
+from bot.constants import MOVE_TYPE_PAWN
 from test_scenarios import *
 import pytest
 
@@ -53,7 +53,7 @@ class TestBoardExpertPawns():
         ), 
         (
             SCENARIO_WITH_HORIZONTAL_WALLS,
-           "N",
+            "N",
             [
                 Move(type=MOVE_TYPE_PAWN, from_cell=(0,4), to_cell=(1,4)),
                 Move(type=MOVE_TYPE_PAWN, from_cell=(2,8), to_cell=(3,8)),
@@ -86,7 +86,6 @@ class TestBoardExpertPawns():
                 Move(type=MOVE_TYPE_PAWN, from_cell=(1,1), to_cell=(0,1)),
                 Move(type=MOVE_TYPE_PAWN, from_cell=(4,4), to_cell=(3,4)),
                 Move(type=MOVE_TYPE_PAWN, from_cell=(7,2), to_cell=(5,2)) 
-                
             ]
         ), 
         (
