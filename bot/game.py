@@ -79,6 +79,12 @@ class Game:
         
         move = await front_jump.perform_an_action(request_data)
         await self.client.send_message(request_data, move)
+        Game.show_move(move)
+        
+
+    @staticmethod
+    def show_move(move):
+        return move
 
 
 if __name__ == "__main__":

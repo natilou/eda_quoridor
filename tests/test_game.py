@@ -1,4 +1,5 @@
 from bot.constants import MOVE_TYPE_PAWN, MOVE_TYPE_WALL
+from bot.game import Game
 from bot.domains.wall_move import WallMove
 from bot.domains.wall_move import Move
 from bot.adapters.websocket_client import WebsocketClient
@@ -80,4 +81,4 @@ class TestGame:
         move_advanced_pawn.set_next(move_pawn_random)
         move_pawn_random.set_next(put_wall_random)
         move = await front_jump.perform_an_action(request_data)
-        assert move == expected
+        assert Game.show_move(move) == expected
